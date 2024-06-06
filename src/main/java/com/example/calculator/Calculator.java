@@ -8,12 +8,13 @@ public class Calculator {
     }
     
     // Ignore all issues in this method
-    
+    // BEGIN-NOSCAN
     public void methodWithIgnoredIssues() {
         // Issue: This statement has no effect
         int x = 10; // This statement is just an example and will be ignored by SonarQube
     }
-    
+    // END-NOSCAN
+
     public int subtract(int a, int b) {
         return a - b;
     }
