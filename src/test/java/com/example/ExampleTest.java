@@ -13,6 +13,6 @@ public class ExampleTest {
      @Test
     public void testAddnegative() {
         Example example = new Example();
-        assertEquals(5, example.add(3, 3));
+        assertFalse(5, example.add(3, 3));
     }
 }
