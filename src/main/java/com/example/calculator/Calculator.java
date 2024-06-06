@@ -6,11 +6,18 @@ public class Calculator {
     public int add(int a, int b) {
         return a + b;
     }
-    // START-NOSCAN
+    
+    // Ignore all issues in this method
+    
+    public void methodWithIgnoredIssues() {
+        // Issue: This statement has no effect
+        int x = 10; // This statement is just an example and will be ignored by SonarQube
+    }
+    
     public int subtract(int a, int b) {
         return a - b;
     }
-    // END-NOSCAN
+    
     public int multiply(int a, int b) {
         return a * b;
     }
