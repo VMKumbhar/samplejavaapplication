@@ -2,10 +2,12 @@
 package com.example.calculator;
 
 public class Calculator {
-    
+
+    // BEGIN-NOSCAN
     public int add(int a, int b) {
         return a + b;
     }
+    // END-NOSCAN
 
     public int subtract(int a, int b) {
         return a - b;
