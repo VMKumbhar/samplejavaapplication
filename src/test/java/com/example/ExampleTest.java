@@ -10,4 +10,9 @@ public class ExampleTest {
         Example example = new Example();
         assertEquals(5, example.add(2, 3));
     }
+     @Test
+    public void testAddnegative() {
+        Example example = new Example();
+        assertEquals(5, example.add(3, 3));
+    }
 }
