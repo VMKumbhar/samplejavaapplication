@@ -1,8 +1,8 @@
-// CalculatorTest.java
+// ExampleTest.java
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class CalculatorTest {
+public class ExampleTest {
     @Test
     public void testAdd() {
         Calculator calculator = new Calculator();
