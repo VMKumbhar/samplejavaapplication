@@ -17,11 +17,8 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 // Run SonarQube analysis
-                script {
-                    def scannerHome = tool 'SonarQubeScanner'
                     withSonarQubeEnv(installationName: 'sq1') {
                         bat "mvn clean verify sonar:sonar -Dsonar.projectKey=sonarcodecoverage -Dsonar.projectName='sonarcodecoverage'"
-                    }
                 }
             }
         }
