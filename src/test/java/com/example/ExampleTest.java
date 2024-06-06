@@ -1,6 +1,7 @@
 package com.example;
 
 import org.junit.Test;
+import org.junit.Assert
 import static org.junit.Assert.assertEquals;
 
 public class ExampleTest {
@@ -13,6 +14,6 @@ public class ExampleTest {
      @Test
     public void testAddnegative() {
         Example example = new Example();
-        assertFalse(5, example.add(3, 3));
+        Assert.assertNotEquals(5, example.add(3, 3));
     }
 }
