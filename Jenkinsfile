@@ -12,7 +12,7 @@ pipeline {
         stage('Git Diff') {
             steps {
                 // Checkout the repository
-                git branch: 'your_branch_name', url: 'https://github.com/your/repository.git'
+                git branch: 'main', url: 'https://github.com/VMKumbhar/samplejavaapplication.git'
                 
                 // Run git diff command to get the changes
                 bat 'git diff'
