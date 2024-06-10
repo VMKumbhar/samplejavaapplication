@@ -8,16 +8,33 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
-	
-        stage('Git Diff') {
-            steps {
-                // Checkout the repository
-                git branch: 'main', url: 'https://github.com/VMKumbhar/samplejavaapplication.git'
-                
-                // Run git diff command to get the changes
-                bat 'git diff lastSuccessfulCommit'
-            }
-        }
+	stage('Retrieve Git Info') {
+             steps {
+                 // Execute git commands to retrieve information
+                script {
+                    // Get the commit ID of the last successful build
+                    def lastSuccessfulCommit = bat(script: "git rev-parse HEAD", returnStdout: true).trim()
+
+                    // Get the commit ID of the current build
+                    def currentCommit = bat(script: "git rev-parse HEAD", returnStdout: true).trim()
+      
+                    // Get the changed files between the last successful commit and current commit
+                    def changedFiles = bat(script: "git diff --name-only ${lastSuccessfulCommit}..${currentCommit}", returnStdout: true).trim()
+
+                    // Get the commit log between the last successful commit and current commit
+                    def commitLog = bat(script: "git log --pretty=oneline ${lastSuccessfulCommit}..${currentCommit}", returnStdout: true).trim()
+
+                    // Print the retrieved information
+                    println "Last Successful Commit: ${lastSuccessfulCommit}"
+                    println "Current Commit: ${currentCommit}"
+                    println "Changed Files:"
+                    println changedFiles
+                    println "Commit Log:"
+                    println commitLog
+                      }
+                }
+            }             
+        
         stage('Test') {
             steps {
                 // Execute JUnit tests
