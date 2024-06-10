@@ -8,6 +8,16 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
+	
+        stage('Git Diff') {
+            steps {
+                // Checkout the repository
+                git branch: 'your_branch_name', url: 'https://github.com/your/repository.git'
+                
+                // Run git diff command to get the changes
+                bat 'git diff'
+            }
+        }
         stage('Test') {
             steps {
                 // Execute JUnit tests
