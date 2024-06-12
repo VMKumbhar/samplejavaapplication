@@ -13,7 +13,7 @@ pipeline {
                  // Execute git commands to retrieve information
                 script {
 		    bat 'echo %cd%'
-                    #def lastSuccessfulCommit = bat 'git diff "C:\ProgramData\Jenkins\.jenkins\workspace\samplejavaapplication>86b1a7951c994299662fc122a986c39f39752457" "C:\ProgramData\Jenkins\.jenkins\workspace\samplejavaapplication"'
+                    
                     // Get the commit ID of the last successful build
                     def lastSuccessfulCommit = bat(script: "git rev-parse HEAD", returnStdout: true).trim()
 
