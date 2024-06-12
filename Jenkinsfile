@@ -13,7 +13,7 @@ pipeline {
                  // Execute git commands to retrieve information
                 script {
 		    bat 'echo %cd%'
-                    
+                    bat 'git log --format="%H" --grep="^Successful build$" -n 1'
                     // Get the commit ID of the last successful build
                     def lastSuccessfulCommit = bat(script: "git rev-parse HEAD", returnStdout: true).trim()
 
