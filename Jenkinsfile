@@ -12,7 +12,7 @@ pipeline {
              steps {
                  // Execute git commands to retrieve information
                 script {
-		    bat pwd
+		    bat 'pwd'
                     // Get the commit ID of the last successful build
                     def lastSuccessfulCommit = bat(script: "git rev-parse HEAD", returnStdout: true).trim()
 
